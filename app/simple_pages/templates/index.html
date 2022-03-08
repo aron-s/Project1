@@ -1,4 +1,173 @@
 {% extends "base.html" %}
 {% block content %}
-    Index Page
+    <div class="container-fluid">
+        <div class="container-lg bg-dark text-light p5 border-top border-primary border-5 mt-3">
+            <div class="container-lg bg-dark p-5">
+                <h1 class="display-5 text-center">Welcome to my Website</h1>
+                <hr>
+                <h2 class="fs-3 fw-light text-center">Some of the skills I have learned-</h2>
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                                aria-label="Slide 4"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <a href="{{ url_for('simple_pages.show', page="page1") }}">
+                                <img src="../../static/images/Git-Logo-2Color.png" class="d-block w-100 img-cour"
+                                     alt="git image">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Git/Github</h5>
+                                <p class="text-white">Some representative placeholder content for the first slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="{{ url_for('simple_pages.show', page="page2") }}">
+                                <img src="../../static/images/homepage-docker-logo.png" class="d-block w-100 img-cour"
+                                     alt="docker">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Docker</h5>
+                                <p class="text-white">Some representative placeholder content for the second slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="{{ url_for('simple_pages.show', page="page3") }}">
+                                <img src="../../static/images/png-transparent-web-development-web-design-software-development-web-developer-web-design-web-design-text-logo.png"
+                                     class="d-block w-100 img-cour" alt="flask">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Python / Flask</h5>
+                                <p class="text-white">Some representative placeholder content for the third slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="{{ url_for('simple_pages.show', page="page4") }}">
+                                <img src="../../static/images/cicd.png" class="d-block w-100 img-cour" alt="CI/CD">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>CI / CD</h5>
+                                <p class="text-white">Some representative placeholder content for the fourth slide.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                {#                <div class="row">#}
+                {#                    <p class="col-md-8 col-lg-9">Welcome to my personal website. Hi! I am Aron Shrestha, a junior#}
+                {#                        undergrad#}
+                {#                        at New Jersey Institute of Technology. I am a computer science#}
+                {#                        major with a minor in Mobile and Web. This personal website was made to showcase all my personal#}
+                {#                        projects that I have created during my studies. <br><br>#}
+                {#                        I intend for this website to keep improving as I improve on my skills. This website will be up#}
+                {#                        to#}
+                {#                        date will all of my latest projects and accomplishments.<br><br>#}
+                {#                        Languages used in my Projects :- <br>#}
+                {#                        - Java, Python, C++, HTML, CSS,#}
+                {#                    </p>#}
+                {#                    <img src="./images/mypic1.jpg" class="col-md-4 col-lg-3 img-fluid rounded-circle float-end mx-auto"#}
+                {#                         style="max-width: 350px;" alt="A picture of me">#}
+                {#                </div>#}
+            </div>
+        </div>
+        <center>
+            <hr class="col-10">
+        </center>
+        <div class="container-lg p-4 border-start border-end border-dark" style="background: #94d2bd">
+            <h2 class="display-6 p-3">Featured</h2>
+            <div class="row pt-3 mx-3 text-center">
+                <div class="col-md-4">
+                    <div class="card border border-primary border-2 pb-2 mb-3">
+                        <div class="card-body">
+                            <h3 class="card-title">Who am I?</h3>
+                            <hr>
+                            <p class="card-text">
+                                Welcome to my personal website. Hi! I am Aron Shrestha, a junior undergrad at New Jersey
+                                Institute of Technology. I am a computer science major with a minor in Mobile and Web development.
+                                This personal website was made to showcase my skills and any personal projects that I have created
+                                during my studies.
+
+                            </p>
+                            <a href="https://github.com/aron-s/" class="btn btn-primary mt-3"
+                               target="_blank">View My Github!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border border-primary border-2 pb-2 mb-3">
+                        <div class="card-body">
+                            <h3 class="card-title">Skills</h3>
+                            <hr>
+                            <p class="card-text">
+                            As a computer Science student, I have learned the necessary skills in the field of software engineering.These include-<br>
+                                <b>Programming Languages:</b> Java, C, C++, Python,
+HTML/CSS<br>
+                                <b>Source and Version Control:</b> Git, GitHub, Docker, Heroku <br>
+                                <b>Frameworks:</b> Boostrap, Flask<br>
+                                <b>Concepts:</b> Data Structures and Algorithms, Object-Oriented Programming
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border border-primary border-2 pb-2 mb-3">
+                        <div class="card-body">
+                            <h5>Contact Me</h5>
+                            <form class="row justify-content-center">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <label for="firstname" class="text-start col-form-label">First Name:</label>
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="firstname">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="lastname" class="text-start col-form-label">Last Name:</label>
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="lastname">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label for="emailadd" class="text-start col-form-label">Email:</label>
+                                        <div class="col">
+                                            <input type="email" class="form-control" id="emailadd"
+                                                   aria-describedby="emailHelp">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary justify-content-center mt-3">Contact
+                                        Me
+                                    </button>
+                                </div>
+
+                            </form>
+                            {#                            <h3 class="card-title"></h3>#}
+                            {#                            <hr>#}
+                            {#                            <p class="card-text">#}
+                            {##}
+                            {#                            </p>#}
+                            {#                            <a href="https://github.com/aron-s/NinePuzzle" class="btn btn-primary mt-3" target="_blank">View#}
+                            {#                                Project</a>#}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
