@@ -1,11 +1,11 @@
 # Project Setup
 
-[![Production Workflow](https://github.com/aron-s/Project1/actions/workflows/prod.yml/badge.svg)](https://github.com/kaw393939/docker_flask/actions/workflows/prod.yml)
+[![Production Workflow](https://github.com/aron-s/Project1/actions/workflows/prod.yml/badge.svg)]
 
 * [Production Deployment](https://as4259-testing.herokuapp.com/)
 
 
-[![Development Workflow](https://github.com/aron-s/Project1/actions/workflows/dev.yml/badge.svg)](https://github.com/kaw393939/docker_flask/actions/workflows/dev.yml)
+[![Development Workflow](https://github.com/aron-s/Project1/actions/workflows/dev.yml/badge.svg)]
 
 * [Developmental Deployment](https://project1-as4259-development.herokuapp.com/)
 
