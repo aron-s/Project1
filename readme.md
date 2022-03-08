@@ -2,7 +2,7 @@
 
 [![Production Workflow](https://github.com/aron-s/Project1/actions/workflows/prod.yml/badge.svg)]
 
-* [Production Deployment](https://as4259-testing.herokuapp.com/)
+* [Production Deployment](https://project1-as4259.herokuapp.com/)
 
 
 [![Development Workflow](https://github.com/aron-s/Project1/actions/workflows/dev.yml/badge.svg)]
