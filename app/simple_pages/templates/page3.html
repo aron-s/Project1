@@ -1,4 +1,161 @@
 {% extends "base.html" %}
 {% block content %}
-    Page 3
+    <div class="container-md bg-light text-dark p5 border-top border-primary border-5 mt-3">
+        <h1 class="display-5 text-center pt-3">Python/Flask-</h1>
+        <div class="row justify-content-md-center">
+            <div class="col-md-10">
+                <hr>
+                <p class="text-center">
+                    Flask is a micro web framework written in Python. It is classified as a microframework because it
+                    does not require particular tools or libraries. This project was created using flask. How
+                    python/flask was
+                    used in this project is documented below.
+                </p><br>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <h2 class="display-6">Pytest</h2>
+                        <p>
+                            Pytest is a testing framework based on python. For this project, pytest was used to make
+                            test cases for the different pages of the website and ensure every one of them worked as
+                            intended. The different cases tests the contents in each web page and also weather they
+                            return an
+                            200 OK status code. <br>
+                            A snippet of code below shows an example of a test case used-<br><br>
+                            <code>
+                                def test_request_index(client):<br>
+                                &emsp; """This makes the index page"""<br>
+                                &emsp; response = client.get("/")<br>
+                                &emsp; assert response.status_code == 200<br>
+                                &emsp; assert b"Welcome to my Website" in response.data<br>
+                            </code><br>
+                            The code above asserts that in our index page we have the words "Welcome to my Website" and
+                            that the web page is returning a 200 OK status code.
+                            When creating simple pages, after editing/adding the contents of the page, I updated the
+                            test cases accordingly to make sure that the website works as updated.
+                        </p>
+                        <br>
+                        <hr>
+                        <h2 class="display-6">Documentation and Resources</h2>
+                        <ul>
+                            <li>Link to the project on Github: <a href="https://github.com/aron-s/Project1"
+                                                                  target="_blank">Github</a>
+                            </li>
+                            <li>Link to flask: <a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank">Flask
+                                Documentation</a></li>
+                            <li>Link to flask blueprint: <a
+                                    href="https://flask.palletsprojects.com/en/2.0.x/blueprints/" target="_blank"> Flask
+                                Blueprint</a></li>
+                            <li>Link to flask testing with pytest: <a
+                                    href="https://flask.palletsprojects.com/en/2.0.x/testing/"
+                                    target="_blank">Pytest</a></li>
+                        </ul>
+                        <br>
+                        <hr>
+                        <h2 class="display-6">File structure of the Project</h2>
+                        This project is structured as shown below-<br>
+                        <ul>
+                            <li>Project Root Folder <- Root of the project</li>
+                            <ul>
+                                <li>.dockerignore -> List files to ignore that are not needed to create an image</li>
+                                <li>.gitignore -> List files to ignore for commits to git</li>
+                                <li>docker-compose.yml <- Orchestration file that contains the configuration to develop
+                                    locally, it overrides the Dockerfile to run the flask development server instead of
+                                    running the gunicorn server that is used for hosting on Heroku
+                                </li>
+                                <li>Dockerfile <-File used to create an image to run in a container that runs the
+                                    program
+                                </li>
+                                <li>hekoru.yml <- Contains configuration to host the image on heroku</li>
+                                <li>Readme <- Contains information displayed at the github repository of the project
+                                </li>
+                                <li>requirements.txt <- requirements text file</li>
+                                <li>setup.py <- setup tools</li>
+                                <li>.github - a folder</li>
+                                <ul>
+                                    <li>workflows - Folder containing github workflows routines</li>
+                                    <ul>
+                                        <li>dev.yml <- Contains workflow configurations to run for the development
+                                            version. It runs when there is a pull request.
+                                        </li>
+                                        <li>prod.yml - Contains workflow configurations to run for the production
+                                            version. It runs when commits are pushed or merged into the master branch.
+                                        </li>
+                                    </ul>
+                                </ul>
+                                <li>app -a Folder containing app utilities</li>
+                                <ul>
+                                    <li>context_processors - creates a namespace</li>
+                                    <ul>
+                                        <li>__init__.py -> Contains python code for few utility functions.</li>
+                                    </ul>
+                                    <li>simple_pages -> a folder</li>
+                                    <ul>
+                                        <li>templates -> Folder containing the web pages</li>
+                                        <ul>
+                                            <li>about.html -> About Me page</li>
+                                            <li>index.html -> The index/home page</li>
+                                            <li>page1.html -> Page containing Git information</li>
+                                            <li>page2.html -> Page containing Docker information</li>
+                                            <li>page3.html -> Page containing python/flask information</li>
+                                            <li>page4.html -> Page containing CI/CD information</li>
+                                        </ul>
+                                        <li>__init_.py -> Contains flask code to render web pages.</li>
+                                    </ul>
+                                    <li>static -> a folder</li>
+                                    <ul>
+                                        <li>css -> Folder containing css files</li>
+                                        <ul>
+                                            <li>styles.css -> Contains CSS styling for webpages</li>
+                                        </ul>
+                                        <li>icons -> Folder containing icons</li>
+                                        <ul>
+                                            <li>facebook.png - Facevook logo</li>
+                                            <li>Github-Mark-Light-32px.png - Github logo</li>
+                                            <li>instagram.png -> Instagram logo</li>
+                                            <li>linkedin.png -> LinkedIn logo</li>
+                                            <li>Logo 32_32 px.png -> A logo for title</li>
+                                        </ul>
+                                        <li>images -> Folder containing images</li>
+                                        <ul>
+                                            <li>cicd.png -> CI/CD image</li>
+                                            <li>flask.png -> Flask image</li>
+                                            <li>Git-Logo-2Color.png -> Git image</li>
+                                            <li>homepage-docker-logo.png -> Docker image</li>
+                                            <li>mypic1.jpg -> Image of myself</li>
+                                            <li>sample.jpg -> Sample image</li>
+                                        </ul>
+                                        <li>js -> Folder containing javascript files</li>
+                                        <ul>
+                                            <li>scripts.js -> Javascript file containing javascripts used in the
+                                                project.
+                                            </li>
+                                        </ul>
+                                        <li>templates -> a folder containing base template</li>
+                                        <ul>
+                                            <li>base.html -> Base html template use</li>
+                                        </ul>
+                                        <li>__init__.py -> Creates flask app</li>
+                                        <li>run.py -> This allows Gunicorn to serve the app in production</li>
+                                    </ul>
+                                </ul>
+                                <li>tests -> Folder containing test routines
+                                </li>
+                                <ul>
+                                    <li>__init__.py -> pytest file</li>
+                                    <li>calculator_test.py -> test for calculator program (for future)</li>
+                                    <li>conftest.py -> pytest file to test if the application is loading</li>
+                                    <li>context_process_test.py -> tests the utility context processes</li>
+                                    <li>simple_pages_test.py -> pytest file to test the html pages</li>
+                                </ul>
+                            </ul>
+                        </ul>
+
+                    </div>
+
+                </div>
+                <hr class="mb-4">
+            </div>
+        </div>
+    </div>
 {% endblock %}

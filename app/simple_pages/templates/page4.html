@@ -1,4 +1,64 @@
 {% extends "base.html" %}
 {% block content %}
-    Page 4
+    <div class="container-md bg-light text-dark p5 border-top border-primary border-5 mt-3">
+        <h1 class="display-5 text-center pt-3">CI/CD-</h1>
+        <div class="row justify-content-md-center">
+            <div class="col-md-10">
+                <hr>
+                <p class="text-center">
+                    Docker is a set of platform as a service products that use OS-level virtualization to
+                    deliver software in packages called containers. Some terminologies of Git are given below.
+                </p><br><hr>
+                <div class="row">
+                    <div class="col">
+                        <h2 class="display-6">Containers</h2>
+                        <ul>
+                        <li>A container is a standard unit of software that packages up code and all
+                            its dependencies so the application runs quickly and reliably from one computing environment
+                            to another. A Docker container image is a lightweight, standalone, executable package of
+                            software that includes everything needed to run an application: code, runtime, system tools,
+                            system libraries and settings.
+                        </li></ul><br><hr>
+                        <h2 class="display-6">Images</h2>
+                        <ul><li>Docker images are the basis of containers. It is the package with all the
+                            dependencies and information needed to create a container. An image includes all the
+                            dependencies (such as frameworks) plus deployment and execution configuration to be used by
+                            a container runtime. Usually, an image derives from multiple base images that are layers
+                            stacked on top of each other to form the container's filesystem. An image is immutable once
+                            it has been created.</li></ul>
+                            <br><hr>
+                            <h2 class="display-6">Dockerhub</h2>
+                            <ul><li><b>Dockerhub</b> is a hosted repository service provided by Docker for finding and sharing
+                            container images. <a href="https://hub.docker.com/repository/docker/as4259/project1"
+                                                 target="_blank">Click here</a> to view this project on dockerhub.</li></ul><br><hr>
+                           <h2 class="display-6">Some basic docker commands-</h2>
+                        These are the basic commands for docker that I know-<br>
+                        <ul>
+                        <li>"docker –version": This command displays the current version of docker installed.
+                        </li>
+                        <li>"docker ps":Shows list of currently running containers.</li>
+                        <li>"docker build": Builds an image from a dockerfile.</li>
+                        <li>"docker images": Displays all docker images.</li>
+                        <li>"docker run": Create a container of an image.</li>
+                        <li>"docker stop": Stop a running container.</li>
+                        <li>"docker rm": Remove a stopped container. The "-f" argument can stop and remove a running
+                            container.
+                        </li>
+                        <li>"docker compose up --build": Build a container from a docker-compose.yml file.</li>
+                        <li>"docker commit": Create a new image of an edited container on the local system.</li>
+                        <li>"docker push": Push image into docker hub repository.</li>
+                        <li>"docker pull": Pull an image from a docker repository.</li>
+                        <li>"docker login": Log into docker hub repository.</li>
+                        <li>"docker tag": Retag a local image with a new image name
+                            and tag.
+                        </li>
+                            </ul>
+
+                    </div>
+
+                </div>
+                <hr class="mb-4">
+            </div>
+        </div>
+    </div>
 {% endblock %}
