@@ -1,43 +1,49 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="container-md bg-light text-dark p5 border-top border-primary border-5 mt-3">
-        <h1 class="text-center pt-3">Git/Github-</h1>
+        <h1 class="display-5 text-center pt-3">Git/Github-</h1>
         <div class="row justify-content-md-center">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <hr>
-                <div class="row justify-content-center">
-                    <div class="col-md-10">
-                        <p>
+                <div class="row"><p class="text-center">
                             Git is software for tracking changes in any set of files, usually used for coordinating work
                             among programmers collaboratively developing source code during software development.
                             GitHub is a provider of Internet hosting for software development and version control using
-                            Git. Some terminologies of Git-<br>
-                            <li><b>Branches: </b> A branch is a parallel version of a repository. It is contained within the
+                            Git. Some terminologies of Git are given below.<br></p></div>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                            <h2 class="display-6">Branch</h2>
+                            <ul>
+                            <li>A branch is a parallel version of a repository. It is contained within the
                             repository, but does not affect the primary or main branch allowing you to work freely
                             without disrupting the "live" version. When you've made the changes you want to make, you
                             can merge your branch back into the main branch to publish your changes.
-                            <br></li>
-                            <li><b>Merge: </b>Merging takes the changes from one branch (in the same repository or from a
+                            </li></ul><br><hr>
+                            <h2 class="display-6">Merge</h2>
+                            <ul><li>Merging takes the changes from one branch (in the same repository or from a
                             fork), and applies them into another. This often happens as a "pull request" (which can be
                             thought of as a request to merge), or via the command line. A merge can be done through a
                             pull request via the GitHub.com web interface if there are no conflicting changes, or can
                             always be done via the command line.
-                            <br></li>
-                            <li><b>Commit: </b>A commit, or "revision", is an individual change to a file (or set of files).
+                            </li></ul><br><hr>
+                            <h2 class="display-6">Commit</h2>
+                            <ul><li>A commit, or "revision", is an individual change to a file (or set of files).
                             When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or
                             "hash") that allows you to keep record of the specific changes committed along with who made
                             them and when. Commits usually contain a commit message which is a brief description of what
                             changes were made.
-                            <br></li>
-                            <li><b>Tags: </b>Tags are associated with commits, so you can use a tag to mark an individual
+                            </li></ul><br><hr>
+                            <h2 class="display-6">Tags</h2>
+                            <ul><li>Tags are associated with commits, so you can use a tag to mark an individual
                             point in your repository's history, including a version number for a release.
-                            <br></li>
-                            <li><b>Repositories: </b>A repository is the most basic element of GitHub. They're easiest to
+                            </li></ul><br><hr>
+                            <h2 class="display-6">Repositories</h2>
+                            <ul><li>A repository is the most basic element of GitHub. They're easiest to
                             imagine as a project's folder. A repository contains all of the project files (including
                             documentation), and stores each file's revision history. Repositories can have multiple
                             collaborators and can be either public or private.
-                        <br></li>
-                        </p>
+                            </li></ul><br>
                     </div>
 
                 </div>
