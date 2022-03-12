@@ -6,53 +6,66 @@
             <div class="col-md-10">
                 <hr>
                 <p class="text-center">
-                    Docker is a set of platform as a service products that use OS-level virtualization to
-                    deliver software in packages called containers. Some terminologies of Git are given below.
-                </p><br><hr>
+                    CI and CD stand for continuous integration and continuous delivery/continuous deployment. Continuous
+                    Integration (CI) is a development practice where developers integrate code into a shared repository
+                    frequently, preferably several times a day. In continuous development updates are made continuously,
+                    piece-by-piece, enabling software code to be delivered to customers as soon as it is completed and
+                    tested.
+
+                </p><br>
+                <hr>
                 <div class="row">
                     <div class="col">
-                        <h2 class="display-6">Containers</h2>
-                        <ul>
-                        <li>A container is a standard unit of software that packages up code and all
-                            its dependencies so the application runs quickly and reliably from one computing environment
-                            to another. A Docker container image is a lightweight, standalone, executable package of
-                            software that includes everything needed to run an application: code, runtime, system tools,
-                            system libraries and settings.
-                        </li></ul><br><hr>
-                        <h2 class="display-6">Images</h2>
-                        <ul><li>Docker images are the basis of containers. It is the package with all the
-                            dependencies and information needed to create a container. An image includes all the
-                            dependencies (such as frameworks) plus deployment and execution configuration to be used by
-                            a container runtime. Usually, an image derives from multiple base images that are layers
-                            stacked on top of each other to form the container's filesystem. An image is immutable once
-                            it has been created.</li></ul>
-                            <br><hr>
-                            <h2 class="display-6">Dockerhub</h2>
-                            <ul><li><b>Dockerhub</b> is a hosted repository service provided by Docker for finding and sharing
-                            container images. <a href="https://hub.docker.com/repository/docker/as4259/project1"
-                                                 target="_blank">Click here</a> to view this project on dockerhub.</li></ul><br><hr>
-                           <h2 class="display-6">Some basic docker commands-</h2>
-                        These are the basic commands for docker that I know-<br>
-                        <ul>
-                        <li>"docker –version": This command displays the current version of docker installed.
-                        </li>
-                        <li>"docker ps":Shows list of currently running containers.</li>
-                        <li>"docker build": Builds an image from a dockerfile.</li>
-                        <li>"docker images": Displays all docker images.</li>
-                        <li>"docker run": Create a container of an image.</li>
-                        <li>"docker stop": Stop a running container.</li>
-                        <li>"docker rm": Remove a stopped container. The "-f" argument can stop and remove a running
-                            container.
-                        </li>
-                        <li>"docker compose up --build": Build a container from a docker-compose.yml file.</li>
-                        <li>"docker commit": Create a new image of an edited container on the local system.</li>
-                        <li>"docker push": Push image into docker hub repository.</li>
-                        <li>"docker pull": Pull an image from a docker repository.</li>
-                        <li>"docker login": Log into docker hub repository.</li>
-                        <li>"docker tag": Retag a local image with a new image name
-                            and tag.
-                        </li>
-                            </ul>
+                        <h2 class="display-6">GitHub Actions</h2>
+                        Github actions help to automate, customize, and execute software development workflows right in
+                        your repository. We can discover, create, and share actions to perform any job we'd like,
+                        including CI/CD, and combine actions in a completely customized workflow. This project uses
+                        features from github actions to implement CI/CD.
+                        <br><br>
+                        In the project we have two ".yml" files which are inside our ".github/workflows" directory. This
+                        is used for CI/CD purposes and the files contain routines to follow on certain actions. These
+                        are executed under github ActionsMore about these will be explained below.
+
+                        <br>
+                        <hr>
+                        <h2 class="display-6">How CI/CD is Used in the Project</h2>
+                        "Integration is primarily about communication. Integration allows developers to tell other
+                        developers about the changes they have made. Frequent communication allows people to know
+                        quickly as changes develop."[1]<br><br>
+
+                        To implement Integration in the project we have a repository on Github for this project. The
+                        repository
+                        is made public. The repository
+                        has a main branch and a development branch. Changes are made to the development branch and
+                        comitted to the same branch. A pull request is then created to merge the branch. <br><br>
+
+                        "Continuous Delivery is a software development discipline where you build software in such a way
+                        that the software can be released to production at any time."[2]<br><br>
+                        Continuous delivery has also been set up for this project. As mentioned in the previous section we have "dev.yml" and "prod.yml" that defines the workflows
+                        for our repository. These workflows contain actions/jobs to be executed on certain criteria
+                        defined by us.
+                        On a push or merge made to the main branch the "prod.yml" workflow will run. This workflow runs
+                        <a href="page3.html">pytest</a>, and deploys the project onto heroku(production-site) and
+                        docker. <br><br>
+                        On pull requests "dev.yml" workflow is executed which runs pytest and deploys the project to a
+                        development-site and not in the production-site in heroku. After all the tests have passed we
+                        can merge the branch the main branch.
+                        As we can see these all automate the deployment and testing for the project. This is how CI/CD
+                        is used in the project.
+                        <br>
+                        <hr>
+                        <h2 class="display-6">How Image is Deployed in Dockerhub</h2>
+                        The workflows mentioned above deploys the image onto DockerHub on push/merge into the master
+                        branch as defined in our "prod.yml" file. The changes in the docker image is commited and pushed
+                        into the docker repository. This happens automatically through github action workflows. <br>
+                        <hr>
+                        <h2 class="display-6">Citations-</h2>
+                        <ol>
+                            <li><a href="https://www.martinfowler.com/articles/continuousIntegration.html">https://www.martinfowler.com/articles/continuousIntegration.html</a>
+                            </li>
+                            <li><a href="https://www.martinfowler.com/bliki/ContinuousDelivery.html">https://www.martinfowler.com/bliki/ContinuousDelivery.html</a>
+                            </li>
+                        </ol>
 
                     </div>
 
