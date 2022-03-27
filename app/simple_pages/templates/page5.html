@@ -1,0 +1,240 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container-md bg-light text-dark p5 border-top border-primary border-5 mt-3">
+        <h1 class="display-5 text-center pt-3">Object Oriented Design Patterns Overview-</h1>
+        <div class="row justify-content-md-center">
+            <div class="col-md-10">
+                <hr>
+                <p class="text-center">
+                    This page contains an introduction to Object Oriented Design, SOLID principles, and design patterns.
+                    These topics are widely used in the software engineering industry by professionals. The glossary of terms associated with Object Oriented Programming will be at the end of the article.
+                </p><br>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <h2 class="display-6">Overview of SOLID</h2>
+                        SOLID is an acronym that describes practises in developing softwares keeping Object Oriented
+                        Design in mind.
+                        SOLID stands for:<br>
+                        <br>
+                        <ul>
+                            <li><b>Single-responsiblity Principle :</b> This principle states that “a class should have
+                                only one reason to change, meaning that a class should have only one job
+                                ” which means every class should have a single responsibility or single job or single
+                                purpose. Take the example of developing software. The task is divided into different
+                                members doing different things as front-end designers do design, the tester does testing
+                                and backend developer takes care of backend development part then we can say that
+                                everyone has a single job or responsibility.
+
+                            </li>
+
+                            <li><b>Open-closed Principle :</b> This principle states that “software entities (classes,
+                                modules, functions, etc.) should be open for extension, but closed for modification”
+                                which means you should be able to extend a class behavior, without modifying it.
+
+                            </li>
+
+                            <li><b>Liskov Substitution Principle :</b> According to this principle “Derived or child
+                                classes must be substitutable for their base or parent classes“. This principle ensures
+                                that any class that is the child of a parent class should be usable in place of its
+                                parent without any unexpected behavior.
+                                One of the classic examples of this principle is a rectangle having four sides. A
+                                rectangle’s height can be any value and width can be any value. A square is a rectangle
+                                with equal width and height. So we can say that we can extend the properties of the
+                                rectangle class into square class. In order to do that you need to swap the child
+                                (square) class with parent (rectangle) class to fit the definition of a square having
+                                four equal sides but a derived class does not affect the behavior of the parent class so
+                                if you will do that it will violate the Liskov Substitution Principle.
+                            </li>
+
+
+                            <li><b>Interface Segregation Principle :</b> This principle is the first principle that
+                                applies to Interfaces instead of classes in SOLID and it is similar to the single
+                                responsibility principle. It states that “do not force any client to implement an
+                                interface which is irrelevant to them“. Here your main goal is to focus on avoiding fat
+                                interface and give preference to many small client-specific interfaces. You should
+                                prefer many client interfaces rather than one general interface and each interface
+                                should have a specific responsibility.
+
+                            </li>
+
+                            <li><b>Dependency Inversion Principle :</b> This principles states that "Entities must
+                                depend on abstractions, not on concretions. It states that the high-level module must
+                                not depend on the low-level module, but they should depend on abstractions."
+                                This means that if a high module or class will be dependent more on low-level modules or
+                                class then your code would have tight coupling and if you will try to make a change in
+                                one class it can break another class which is risky at the production level. So always
+                                try to make classes loosely coupled as much as you can and you can achieve this through
+                                abstraction. The main motive of this principle is decoupling the dependencies so if
+                                class A changes the class B doesn’t need to care or know about the changes.
+
+
+                            </li>
+                        </ul>
+<img src="../../static/images/solid.png"
+                         class="img-fluid mx-auto d-block"
+                         alt="Solid Principles"
+                        style="max-width: 700px;max-height: 400px">
+                        <br>
+                        We will further discuss and demonstrate how SOLID principles is used for our calculator program in
+                        another <a href="{{ url_for('simple_pages.show', page="page7") }}">article</a>.
+
+                        <hr>
+                        <h2 class="display-6">Overview of Design Patterns</h2>
+                        In software engineering, a design pattern is a general repeatable solution to a commonly
+                        occurring problem in software design. A design pattern isn't a finished design that can be
+                        transformed directly into code. It is a description or template for how to solve a problem that
+                        can be used in many different situations.
+                        The main design patterns are -<br><br>
+                        <ul>
+                            <li><b>Creational design patterns</b></li>
+                            <ul>
+                                <li><b>Abstract Factory :</b>
+                                    Creates an instance of several families of classes
+                                </li>
+                                <li><b>Builder :</b>
+                                    Separates object construction from its representation
+                                </li>
+                                <li>
+                                    <b>Factory Method :</b>
+                                    Creates an instance of several derived classes
+                                </li>
+                                <li><b>Object Pool :</b>
+                                    Avoid expensive acquisition and release of resources by recycling objects that are
+                                    no longer in use
+                                </li>
+                                <li><b>Prototype :</b>
+                                    A fully initialized instance to be copied or cloned
+                                </li>
+                                <li><b>Singleton :</b>
+                                    A class of which only a single instance can exist
+                                </li>
+                            </ul>
+                            <li><b>Structural design patterns</b></li>
+                            <ul>
+                                <li><b>Adapter :</b>
+                                    Match interfaces of different classes
+                                </li>
+                                <li><b>Bridge :</b>
+                                    Separates an object’s interface from its implementation
+                                </li>
+                                <li><b>Composite :</b>
+                                    A tree structure of simple and composite objects
+                                </li>
+                                <li><b>Decorator :</b>
+                                    Add responsibilities to objects dynamically
+                                </li>
+                                <li><b>Facade</b>
+                                    A single class that represents an entire subsystem
+                                </li>
+                                <li><b>Flyweight :</b>
+                                    A fine-grained instance used for efficient sharing
+                                </li>
+                                <li><b>Private Class Data :</b>
+                                    Restricts accessor/mutator access
+                                </li>
+                                <li><b>Proxy :</b>
+                                    An object representing another object
+                                </li>
+                            </ul>
+                            <li><b>Behavioral design patterns</b>
+                            </li>
+                            <ul>
+                                <li><b>Chain of responsibility :</b>
+                                    A way of passing a request between a chain of objects
+                                </li>
+                                <li><b>Command :</b>
+                                    Encapsulate a command request as an object
+                                </li>
+                                <li><b>Interpreter :</b>
+                                    A way to include language elements in a program
+                                </li>
+                                <li><b>Iterator :</b>
+                                    Sequentially access the elements of a collection
+                                </li>
+                                <li><b>Mediator :</b>
+                                    Defines simplified communication between classes
+                                </li>
+                                <li><b>Memento :</b>
+                                    Capture and restore an object's internal state
+                                </li>
+                                <li><b>Null Object :</b>
+                                    Designed to act as a default value of an object
+                                </li>
+                                <li><b>Observer :</b>
+                                    A way of notifying change to a number of classes
+                                </li>
+                                <li><b>State :</b>
+                                    Alter an object's behavior when its state changes
+                                </li>
+                                <li><b>Strategy :</b>
+                                    Encapsulates an algorithm inside a class
+                                </li>
+                                <li><b>Template method :</b>
+                                    Defer the exact steps of an algorithm to a subclass
+                                </li>
+                                <li><b>Visitor :</b>
+                                    Defines a new operation to a class without change
+                                </li>
+                            </ul>
+                        </ul>
+
+                        <br>
+                        We will further discuss and demonstrate how these design patterns are implemented in our calculator program in another <a href="{{ url_for('simple_pages.show', page="page8") }}">article</a>.
+                        <hr>
+                        <h2 class="display-6">Glossary</h2>
+                        <ul>
+                            <li><b>Instantiation: </b> The creation of an instance of a class - that is, an object.
+</li>
+                            <li><b>Object: </b>An instance of a particular class. In general, any number of objects may be constructed from a class definition. The class to which an object belongs defines the general characteristics of all instances of that class. Within those characteristics, an object will behave according to the current state of its attributes and environment.
+</li>
+                            <li><b>Class: </b>A programming language concept that allows data and methods to be grouped together. The class concept is fundamental to the notion of an object-oriented programming language. The methods of a class define the set of permitted operations on the class's data (its attributes). This close tie between data and operations means that an instance of a class - an object - is responsible for responding to messages received via its defining class's methods.
+</li>
+                            <li><b>Namespace: </b>The area of a program in which particular identifiers are visible.</li>
+                            <li><b>Constructor: </b> A constructor is a special function of a class that ios automatically called when an instance of its class is created. A constructor always has the same name as its class, and has no return type.</li>
+                            <li><b>Fixture: </b> A fixed state of a set of objects used as a baseline for running tests. The purpose of a test fixture is to ensure that there is a well known and fixed environment in which tests are run so that results are repeatable.</li>
+                            <li><b>Type hint: </b> Type hinting is a formal solution to statically indicate the type of a value within your Python code.</li>
+                            <li><b>Type cast: </b> Type casting refers to changing an variable of one data type into another.</li>
+                            <li><b>Unit test: </b> A unit test is a way of testing a unit - the smallest piece of code that can be logically isolated in a system. In most programming languages, that is a function, a subroutine, a method or property. </li>
+                            <li><b>Static: </b> Static is a modifier controlling both lifetime (as a static variable) and visibility (depending on linkage). For example a static variable is a variable that has been allocated "statically", meaning that its lifetime (or "extent") is the entire run of the program.
+</li>
+                            <li><b>Instance method: </b> An instance method is a method that belongs to instances of a class, not to the class itself.</li>
+                            <li><b>Instance property: </b> An instance property is a property that belongs to instances of a class, not to the class itself.</li>
+                            <li><b>Static method: </b> A static method (or static function) is a method defined as a member of an object but is accessible directly from an API object's constructor, rather than from an object instance created via the constructor.</li>
+                            <li><b>Static property: </b> Static properties are properties that can be called directly - without creating an instance of a class.
+</li>
+                            <li><b>Encapsulation: </b> Encapsulation is OOPs means containing all important information inside an object, and only exposing selected information to the outside world. Attributes and behaviors are defined by code inside the class template</li>
+                            <li><b>Inheritance: </b> Inheritance in OOPs allows classes to inherit features of other classes. Put another way, parent classes extend attributes and behaviors to child classes. Inheritance supports reusability.
+
+</li>
+                            <li><b>Polymorphism: </b> Polymorphism in OOPs means designing objects to share behaviors. Using inheritance, objects can override shared parent behaviors, with specific child behaviors. Polymorphism allows the same method to execute different behaviors in two ways: method overriding and method overloading.
+
+</li>
+                            <li><b>Abstraction: </b> Abstraction in OOPs means that the user interacts with only selected attributes and methods of an object. Abstraction uses simplified, high level tools, to access a complex object.
+
+</li>
+                            <br>
+                        </ul>
+                        <hr>
+                        <h2 class="display-6">References-</h2>
+                        <ol>
+                            <li>
+                                <a href="https://www.digitalocean.com/community/conceptual_articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design">https://www.digitalocean.com/community/conceptual_articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design</a>
+                            </li>
+                            <li>
+                                <a href="https://www.geeksforgeeks.org/solid-principle-in-programming-understand-with-real-life-examples">https://www.geeksforgeeks.org/solid-principle-in-programming-understand-with-real-life-examples</a>
+                            </li>
+                            <li>
+                                <a href="https://sourcemaking.com/design_patterns">https://sourcemaking.com/design_patterns</a>
+                            </li>
+                            <li><a href="https://www.educative.io/blog/object-oriented-programming">https://www.educative.io/blog/object-oriented-programming</a></li>
+                        </ol>
+
+                    </div>
+
+                </div>
+                <hr class="mb-4">
+            </div>
+        </div>
+    </div>
+{% endblock %}
