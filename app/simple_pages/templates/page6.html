@@ -6,64 +6,120 @@
             <div class="col-md-10">
                 <hr>
                 <p class="text-center">
-                    CI and CD stand for continuous integration and continuous delivery/continuous deployment. Continuous
-                    Integration (CI) is a development practice where developers integrate code into a shared repository
-                    frequently, preferably several times a day. In continuous development updates are made continuously,
-                    piece-by-piece, enabling software code to be delivered to customers as soon as it is completed and
-                    tested.
-
+                    The AAA testing is a pattern used in unit testing that has become a standard in the industry. It
+                    suggests that you should divide your test method into three sections: <b>Arrange, Act and
+                    Assert.</b>
                 </p><br>
+                <img src="../../static/images/aaa.png"
+                     class="img-fluid mx-auto d-block"
+                     alt="Solid Principles"
+                     style="max-width: 55%;max-height: 50%">
                 <hr>
                 <div class="row">
                     <div class="col">
-                        <h2 class="display-6">GitHub Actions</h2>
-                        Github actions help to automate, customize, and execute software development workflows right in
-                        your repository. We can discover, create, and share actions to perform any job we'd like,
-                        including CI/CD, and combine actions in a completely customized workflow. This project uses
-                        features from github actions to implement CI/CD.
-                        <br><br>
-                        In the project we have two ".yml" files which are inside our ".github/workflows" directory. This
-                        is used for CI/CD purposes and the files contain routines to follow on certain actions. These
-                        are executed under github ActionsMore about these will be explained below.
-
-                        <br>
-                        <hr>
-                        <h2 class="display-6">How CI/CD is Used in the Project</h2>
-                        "Integration is primarily about communication. Integration allows developers to tell other
-                        developers about the changes they have made. Frequent communication allows people to know
-                        quickly as changes develop."[1]<br><br>
-
-                        To implement Integration in the project we have a repository on Github for this project. The
-                        repository
-                        is made public. The repository
-                        has a main branch and a development branch. Changes are made to the development branch and
-                        comitted to the same branch. A pull request is then created to merge the branch. <br><br>
-
-                        "Continuous Delivery is a software development discipline where you build software in such a way
-                        that the software can be released to production at any time."[2]<br><br>
-                        Continuous delivery has also been set up for this project. As mentioned in the previous section we have "dev.yml" and "prod.yml" that defines the workflows
-                        for our repository. These workflows contain actions/jobs to be executed on certain criteria
-                        defined by us.
-                        On a push or merge made to the main branch the "prod.yml" workflow will run. This workflow runs
-                        <a href="page3.html">pytest</a>, and deploys the project onto heroku(production-site) and
-                        docker. <br><br>
-                        On pull requests "dev.yml" workflow is executed which runs pytest and deploys the project to a
-                        development-site and not in the production-site in heroku. After all the tests have passed we
-                        can merge the branch the main branch.
-                        As we can see these all automate the deployment and testing for the project. This is how CI/CD
-                        is used in the project.
-                        <br>
-                        <hr>
-                        <h2 class="display-6">How Image is Deployed in Dockerhub</h2>
-                        The workflows mentioned above deploys the image onto DockerHub on push/merge into the master
-                        branch as defined in our "prod.yml" file. The changes in the docker image is commited and pushed
-                        into the docker repository. This happens automatically through github action workflows. <br>
-                        <hr>
-                        <h2 class="display-6">Citations-</h2>
+                        <h2 class="display-6">Tutorial for Arrange, Act, Assert</h2>
+                        Arrange-Act-Assert is a great way to structure test cases. It prescribes an order of operations:<br><br>
                         <ol>
-                            <li><a href="https://www.martinfowler.com/articles/continuousIntegration.html">https://www.martinfowler.com/articles/continuousIntegration.html</a>
+                            <li>Arrange inputs and targets: Arrange steps should set up the test case. Does the test
+                                require any objects or special settings? Does it need to prep a database? Does it need
+                                to log into a web app? Handle all of these operations at the start of the test.
                             </li>
-                            <li><a href="https://www.martinfowler.com/bliki/ContinuousDelivery.html">https://www.martinfowler.com/bliki/ContinuousDelivery.html</a>
+                            <li>Act on the target behavior: Act steps should cover the main thing to be tested. This
+                                could be calling a function or method, calling a REST API, or interacting with a web
+                                page. Keep actions focused on the target behavior.
+                            </li>
+                            <li>Assert expected outcomes: Act steps should elicit some sort of response. Assert steps
+                                verify the goodness or badness of that response. Sometimes, assertions are as simple as
+                                checking numeric or string values. Other times, they may require checking multiple
+                                facets of a system. Assertions will ultimately determine if the test passes or fails.
+                            </li>
+                        </ol>
+                        To provide an example, we will create a simple test using this pattern in python using a
+                        calculator class. The calculator class contains a property "result" that stores the result from
+                        a calculation.<br><br>
+                        Step 1: Create the test function.A docstring can be added as an optional short single line
+                        statement about the behaviour under test.
+                        <div class="ms-4 ps-4 mt-2 mb-3">
+                            <code>
+                                def test_calculator_result_property():<br>
+                                &emsp;"""Testing the Calculator"""
+                            </code>
+                        </div>
+                        Step 2: Arrange and set up the objects to be tested.
+                        <div class="ms-4 ps-4 mt-2 mb-3">
+                            <code>
+                                def test_calculator_result_property():<br>
+                                &emsp;"""Testing the Calculator"""<br>
+                                &emsp;calc1 = Calculator() &emsp; <b>#Arrange</b>
+                            </code>
+                        </div>
+                        Step 3: Act upon the system under test.
+                        <div class="ms-4 ps-4 mt-2 mb-3">
+                            <code>
+                                def test_calculator_result_property():<br>
+                                &emsp;"""Testing the Calculator"""<br>
+                                &emsp;calc1 = Calculator()<br>
+                                &emsp;calc1.result = 5 &emsp; <b>#Act</b>
+                            </code>
+                        </div>
+                        Step 4: Assert and verify the outcome.
+                        <div class="ms-4 ps-4 mt-2 mb-3">
+                            <code>
+                                def test_calculator_result_property():<br>
+                                &emsp;"""Testing the Calculator"""<br>
+                                &emsp;calc1 = Calculator()<br>
+                                &emsp;calc1.result = 5<br>
+                                &emsp;assert calc1.result == 5 &emsp; <b>#Assert</b>
+                            </code>
+                        </div>
+
+                        The example above creates a test case and asserts that the class property "result" is working as
+                        expected.
+
+                        <br>
+                        <hr>
+                        <h2 class="display-6">Why Testing is Important</h2>
+                        Software Testing is important because it ensures that the product delivered is defective free
+                        which in turn emphasizes higher quality and proves to be cost-effective. Bugs (programming
+                        errors) can cause all sorts of problems for users. Testing helps to uncover these bugs so that
+                        they can be fixed before the software is released to the public.
+                        Testing can also help to ensure the quality of the software by identifying and reporting any
+                        defects or inconsistencies in the functionality of the software. In other words, it checks to
+                        make sure that the software does what it's supposed to do. <br>
+                        A few other reasons as to why software testing is important-
+                        <ul>
+                            <li>Increase the quality: Testing enables you to see what the software does and how well it
+                                does it so that the business can measure the quality of the software before it goes
+                                live.
+
+                            </li>
+                            <li>We all make mistakes: There is no such thing as a defect-free system, and we all make
+                                mistakes especially developing a system that is complex.
+                            </li>
+                            <li>Reduce risks: Defects must be sought out and either fixed or removed from the final
+                                product to ensure that the system can run as expected during live operation.
+                            </li>
+                            <li>Cost Effective: It is often more time consuming and difficult to fix a defect, hence
+                                more expensive, when a defect is discovered at a later stage and a large amount of the
+                                system has already been built.
+
+                            </li>
+                            <li>Any bugs are found easily and quicker</li>
+                            <li>Testing saves time and money</li>
+                            <li>Reusable and Reliable</li>
+                        </ul>
+                        <br>
+                        <hr>
+                        <h2 class="display-6">References-</h2>
+                        <ol>
+                            <li>
+                                <a href="https://medium.com/@pjbgf/title-testing-code-ocd-and-the-aaa-pattern-df453975ab80">https://medium.com/@pjbgf/title-testing-code-ocd-and-the-aaa-pattern-df453975ab80</a>
+                            </li>
+                            <li>
+                                <a href="https://automationpanda.com/2020/07/07/arrange-act-assert-a-pattern-for-writing-good-tests/">https://automationpanda.com/2020/07/07/arrange-act-assert-a-pattern-for-writing-good-tests/</a>
+                            </li>
+                            <li>
+                                <a href="https://www.theiceway.com/blog/why-is-software-testing-so-important#">https://www.theiceway.com/blog/why-is-software-testing-so-important#</a>
                             </li>
                         </ol>
 
