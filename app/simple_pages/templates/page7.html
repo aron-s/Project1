@@ -6,65 +6,173 @@
             <div class="col-md-10">
                 <hr>
                 <p class="text-center">
-                    Object Oriented programming (OOP) is a programming paradigm that relies on the concept of classes and objects. It is used to structure a software program into simple, reusable pieces of code blueprints (usually called classes), which are used to create individual instances of objects.
+                    Object Oriented programming (OOP) is a programming paradigm that relies on the concept of classes
+                    and objects. It is used to structure a software program into simple, reusable pieces of code
+                    blueprints (usually called classes), which are used to create individual instances of objects.
                 </p><br>
                 <hr>
                 <div class="row">
                     <div class="col">
                         <h2 class="display-6">Four Principles of OOP</h2>
-                        The four pillars of object oriented programming are:<br>
-<ol>
-    <li><b>Inheritance:</b> child classes inherit data and behaviors from parent class</li>
-    <li><b>Encapsulation:</b> containing information in an object, exposing only selected information</li>
-    <li><b>Abstraction:</b> only exposing high level public methods for accessing an object</li>
-    <li><b>Polymorphism:</b> many methods can do the same task</li>
-</ol>
+                        The four pillars of Object Oriented Programming are:<br>
+                        <ol>
+                            <li><b>Inheritance:</b> child classes inherit data and behaviors from parent class</li>
+                            <li><b>Encapsulation:</b> containing information in an object, exposing only selected
+                                information
+                            </li>
+                            <li><b>Abstraction:</b> only exposing high level public methods for accessing an object</li>
+                            <li><b>Polymorphism:</b> many methods can do the same task</li>
+                        </ol>
+                        <img src="../../static/images/oops.png"
+                     class="img-fluid mx-auto d-block"
+                     alt="OOPs Principles"
+                     style="max-width: 50%;max-height: 50%">
                         We will further explain how these concepts are used in our calculator program below.
                         <hr>
-                        <h2 class="display-6">Example of Our Calculator Class</h2>
-                        Below is the code for a calculator class written by me to showcase the different principles of Object Oriented Programming.
+                        <h2 class="display-6">Demonstration of OOPs using a Calculator Class</h2>
+                        Below is the code for a calculator class written by me to showcase the different principles of
+                        Object Oriented Programming.
                         <div class="ms-4 ps-4 mt-3 mb-3">
                             <code>
                                 """ This is the Calculator Class"""<br>
-class Calculator:<br>
-    &emsp;&emsp;""" This is the default result property"""<br>
-    &emsp;&emsp;result = 0<br>
+                                class Calculator:<br>
+                                &emsp;&emsp;""" This is the default result property"""<br>
+                                &emsp;&emsp;result = 0<br>
+                                <br>
+                                &emsp;&emsp;def add(self, value_1):<br>
+                                &emsp;&emsp;&emsp;&emsp; """ This is the add method"""<br>
+                                &emsp;&emsp;&emsp;&emsp;self.result = value_1 + value_2<br>
+                                &emsp;&emsp;&emsp;&emsp;return self.result<br>
+                                <br>
+                                &emsp;&emsp;def subtract(self, value_1, value_2):<br>
+                                &emsp;&emsp;&emsp;&emsp; """ This is the subtract method"""<br>
+                                &emsp;&emsp;&emsp;&emsp;self.result = value_1 - value_2<br>
+                                &emsp;&emsp;&emsp;&emsp;return self.result<br>
+                                <br>
+                                &emsp;&emsp;def get_result(self):<br>
+                                &emsp;&emsp;&emsp;&emsp;""" This is the get result method"""<br>
+                                &emsp;&emsp;&emsp;&emsp;return self.result<br>
 <br>
-    &emsp;&emsp;def add(self, value_1):<br>
-       &emsp;&emsp;&emsp;&emsp; """ This is the add method"""<br>
-        &emsp;&emsp;&emsp;&emsp;self.result = self.result + value_1<br>
-        &emsp;&emsp;&emsp;&emsp;return self.result<br>
-<br>
-    &emsp;&emsp;def subtract(self, value_1):<br>
-       &emsp;&emsp;&emsp;&emsp; """ This is the subtract method"""<br>
-        &emsp;&emsp;&emsp;&emsp;self.result = self.result - value_1<br>
-        &emsp;&emsp;&emsp;&emsp;return self.result<br>
-    <br>
-    &emsp;&emsp;def get_result(self):<br>
-        &emsp;&emsp;&emsp;&emsp;""" This is the get result method"""<br>
-        &emsp;&emsp;&emsp;&emsp;return self.result<br>
+                                """Addition class inherits calculator"""<br>
+                                class Addition(Calculator):<br>
+                                &emsp;&emsp; def calculate(self, val1):<br>
+                                &emsp;&emsp;&emsp;&emsp;self.result = self.result + val1<br>
+                                <br>
+                                """ Subtraction class inherits calculator"""<br>
+                                class Subtraction(Calculator):<br>
+                                &emsp;&emsp; def calculate(self, val1):<br>
+                                &emsp;&emsp;&emsp;&emsp;self.result = self.result - val1<br>
+                                <br>
                             </code>
                         </div>
                         <br>
-                        <hr>
-                        <h2 class="display-6">How Image is Deployed in Dockerhub</h2>
-                        The workflows mentioned above deploys the image onto DockerHub on push/merge into the master
-                        branch as defined in our "prod.yml" file. The changes in the docker image is commited and pushed
-                        into the docker repository. This happens automatically through github action workflows. <br>
-                        <hr>
-                        <h2 class="display-6">References-</h2>
-                        <ol>
-                            <li><a href="https://www.educative.io/blog/object-oriented-programming">https://www.educative.io/blog/object-oriented-programming</a>
-                            </li>
-                            <li><a href="https://www.martinfowler.com/bliki/ContinuousDelivery.html">https://www.martinfowler.com/bliki/ContinuousDelivery.html</a>
-                            </li>
-                        </ol>
-
+                        <h3 class="display-6">Abstraction</h3>
+                        <p>
+                            Objects only reveal internal mechanisms that are relevant for the use of other objects,
+                            hiding any unnecessary implementation code. The derived class can have its functionality
+                            extended. This concept can help developers more easily make additional changes or additions
+                            over time.
+                        </p>
+                        <p>
+                            In our calculator program if we need to add two numbers, we would use the following
+                            code-<br>
+                        <div class="ms-4 ps-4 mt-3 mb-3">
+                            <code>
+                                """ Add two numbers """<br>
+                                a = 5 # first number<br>
+                                b = 6 # second number<br>
+                                calc = Calculator()<br>
+                                calc.add(a)<br>
+                                calc.add(b)<br>
+                                print(calc.result) # will print 11<br>
+                            </code>
+                    </div>
+                        We can see how abstraction is used to hide the implementation of our add function from our calculator class. Any unnecessary details are hidden, and we can implement a calculator using high level function calls.
+                            </p>
+                            <h3 class="display-6">Inheritance</h3>
+                            <p> Classes can reuse code from other classes. Relationships and subclasses between objects
+                                can be assigned, enabling developers to reuse common logic while still maintaining a
+                                unique hierarchy. This property of OOP forces a more thorough data analysis, reduces
+                                development time and ensures a higher level of accuracy.
+                            </p>
+                            <p>In our code below, the addition class and the subtraction is a subclass of the Calculator
+                                class. This demonstrates that these classes reuse the code from its parent class and
+                                therefore shows the Inheritance property.
+                            <div class="ms-4 ps-4 mt-3 mb-3">
+                            <code>
+                                class Addition(Calculator):<br>
+                                &emsp;&emsp; def calculate(self, val1):<br>
+                                &emsp;&emsp;&emsp;&emsp;self.result = self.result + val1<br>
+                                <br>
+                                class Subtraction(Calculator):<br>
+                                &emsp;&emsp; def calculate(self, val1):<br>
+                                &emsp;&emsp;&emsp;&emsp;self.result = self.result - val1<br>
+                                <br>
+                            </code></div>
+                            </p>
+                            <h3 class="display-6">Polymorphism</h3>
+                            <p>
+                                Objects are designed to share behaviors and they can take on more than one form. The
+                                program will determine which meaning or usage is necessary for each execution of that
+                                object from a parent class, reducing the need to duplicate code. A child class is then
+                                created, which extends the functionality of the parent class. Polymorphism allows
+                                different types of objects to pass through the same interface.
+                            </p>
+                            <p>
+                                In our calculator program below, we can see that the calculate function can do both subtraction and addition depending on the type of object. This showcases how polymorphism is used. Another great example of polymorphism is overloaded functions.
+                            <br>
+                        <div class="ms-4 ps-4 mt-3 mb-3">
+                            <code>
+                                a = Addition()<br>
+                                b = Subtraction()<br>
+                                <br>
+                                a.calculate(1)<br>
+                                a.calculate(2)<br>
+                                b.calculate(1)<br>
+                                b.calculate(2)<br>
+                                <br>
+                                print(a.get_result()) # will print 3<br>
+                                print(b.get_result()) # will print -1<br>
+                            </code>
                     </div>
 
+                            </p>
+                            <h3 class="display-6">Encapsulation</h3>
+                            <p>
+                                This principle states that all important information is contained inside an object and
+                                only select information is exposed. The implementation and state of each object are
+                                privately held inside a defined class. Other objects do not have access to this class or
+                                the authority to make changes. They are only able to call a list of public functions or
+                                methods. This characteristic of data hiding provides greater program security and avoids
+                                unintended data corruption.
+                            </p>
+                            <p>In our implementations of the calculator class and its subclasses above, we can see that all the relavant functions and properties are enclosed in a single object. Throughout our program we will work with the calculator object to do the calculations as all the functions required are enclosed in that class. This shows encapsulation.
+<div class="ms-4 ps-4 mt-3 mb-3">
+                            <code>
+                                calc = Calculator()<br>
+                                calc.add(5)<br>
+                                calc.add(6)<br>
+                                cal.subtract(4)
+                                print(calc.result) # will print 7<br>
+                            </code>
+                    </div>
+                            </p>
+
+                            <hr>
+                            <h2 class="display-6">References-</h2>
+                            <ol>
+                                <li><a href="https://www.educative.io/blog/object-oriented-programming">https://www.educative.io/blog/object-oriented-programming</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.techtarget.com/searchapparchitecture/definition/object-oriented-programming-OOP">https://www.techtarget.com/searchapparchitecture/definition/object-oriented-programming-OOP</a>
+                                </li>
+                            </ol>
+
+                        </div>
+
+                    </div>
+                    <hr class="mb-4">
                 </div>
-                <hr class="mb-4">
             </div>
         </div>
-    </div>
 {% endblock %}
