@@ -14,7 +14,7 @@ class Calculator:
         """ This is the subtract method"""
         self.result = self.result - value_1
         return self.result
-
+    
     def get_result(self):
         """ This is the get result method"""
         return self.result
