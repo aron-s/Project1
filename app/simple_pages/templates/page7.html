@@ -36,33 +36,54 @@
                             <code>
                                 """ This is the Calculator Class"""<br>
                                 class Calculator:<br>
-                                &emsp;&emsp;""" This is the default result property"""<br>
-                                &emsp;&emsp;result = 0<br>
                                 <br>
-                                &emsp;&emsp;def add(self, value_1):<br>
+                                 &emsp;&emsp;@staticmethod<br>
+                                &emsp;&emsp;def add(self, tuple_list):<br>
                                 &emsp;&emsp;&emsp;&emsp; """ This is the add method"""<br>
-                                &emsp;&emsp;&emsp;&emsp;self.result = value_1 + value_2<br>
-                                &emsp;&emsp;&emsp;&emsp;return self.result<br>
+                                &emsp;&emsp;&emsp;&emsp; calculation = Addition.create(tuple_list)<br>
+                                &emsp;&emsp;&emsp;&emsp;return calculation.calculate()<br>
                                 <br>
-                                &emsp;&emsp;def subtract(self, value_1, value_2):<br>
+                                &emsp;&emsp;@staticmethod<br>
+                                &emsp;&emsp;def subtract(self, tuple_list):<br>
                                 &emsp;&emsp;&emsp;&emsp; """ This is the subtract method"""<br>
-                                &emsp;&emsp;&emsp;&emsp;self.result = value_1 - value_2<br>
-                                &emsp;&emsp;&emsp;&emsp;return self.result<br>
+                                &emsp;&emsp;&emsp;&emsp;calculation = Subtraction.create(tuple_list)
+        <br>
+                                &emsp;&emsp;&emsp;&emsp;return calculation.calculate()<br>
                                 <br>
-                                &emsp;&emsp;def get_result(self):<br>
-                                &emsp;&emsp;&emsp;&emsp;""" This is the get result method"""<br>
-                                &emsp;&emsp;&emsp;&emsp;return self.result<br>
-<br>
-                                """Addition class inherits calculator"""<br>
-                                class Addition(Calculator):<br>
-                                &emsp;&emsp; def calculate(self, val1):<br>
-                                &emsp;&emsp;&emsp;&emsp;self.result = self.result + val1<br>
+
+                                class Calculation:<br>
+                                &emsp;&emsp;def __init__(self, tuple_list: tuple):<br>
+                                   &emsp;&emsp; &emsp;&emsp;""" constructor method"""<br>
+                                 &emsp;&emsp;&emsp;&emsp;   self.values = Calculation.convert_args_to_tuple_of_float(tuple_list)
+<br><br>
+                                 &emsp;&emsp;@classmethod<br>
+    &emsp;&emsp;def create(cls, tuple_list: tuple):<br>
+        &emsp;&emsp;&emsp;&emsp;""" factory method"""<br>
+        &emsp;&emsp;&emsp;&emsp;return cls(tuple_list)<br>
                                 <br>
-                                """ Subtraction class inherits calculator"""<br>
-                                class Subtraction(Calculator):<br>
-                                &emsp;&emsp; def calculate(self, val1):<br>
-                                &emsp;&emsp;&emsp;&emsp;self.result = self.result - val1<br>
+                                &emsp;&emsp;@staticmethod<br>
+                                &emsp;&emsp;def convert_args_to_tuple_of_float(tuple_list):<br>
+        &emsp;&emsp;&emsp;&emsp;""" standardize values to list of floats"""<br>
+                                &emsp;&emsp;&emsp;&emsp; list_values_float = []<br>
+        &emsp;&emsp;&emsp;&emsp;for item in tuple_list:<br>
+           &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; list_values_float.append(float(item))<br>
+        &emsp;&emsp;&emsp;&emsp;return tuple(list_values_float)<br>
                                 <br>
+                                """Addition class inherits calculation"""<br>
+                                class Addition(Calculation):<br>
+                                &emsp;&emsp; def calculate(self):<br>
+                                &emsp;&emsp;&emsp;&emsp;result = 0.0<br>
+        &emsp;&emsp;&emsp;&emsp;for value in self.values:<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;result = result + value<br>
+        &emsp;&emsp;&emsp;&emsp;return result<br>
+                                <br>
+                                """ Subtraction class inherits calculation"""<br>
+                                class Subtraction(Calculation):<br>
+                                &emsp;&emsp; def calculate(self):<br>
+                                &emsp;&emsp;&emsp;&emsp;result = 0.0<br>
+        &emsp;&emsp;&emsp;&emsp;for value in self.values:<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;result = result - value<br>
+        &emsp;&emsp;&emsp;&emsp;return result<br>
                             </code>
                         </div>
                         <br>
@@ -81,13 +102,11 @@
                                 """ Add two numbers """<br>
                                 a = 5 # first number<br>
                                 b = 6 # second number<br>
-                                calc = Calculator()<br>
-                                calc.add(a)<br>
-                                calc.add(b)<br>
-                                print(calc.result) # will print 11<br>
+                                result = Calculator.add(a,b)<br>
+                                print(result) # will print 11<br>
                             </code>
                     </div>
-                        We can see how abstraction is used to hide the implementation of our add function from our calculator class. Any unnecessary details are hidden, and we can implement a calculator using high level function calls.
+                        We can see how abstraction is used to hide the implementation of our add function from our calculator class. Any unnecessary details are hidden, and we can calculate numbers using high level function calls.
                             </p>
                             <h3 class="display-6">Inheritance</h3>
                             <p> Classes can reuse code from other classes. Relationships and subclasses between objects
@@ -95,19 +114,26 @@
                                 unique hierarchy. This property of OOP forces a more thorough data analysis, reduces
                                 development time and ensures a higher level of accuracy.
                             </p>
-                            <p>In our code below, the addition class and the subtraction is a subclass of the Calculator
+                            <p>In our code below, the addition class and the subtraction is a subclass of the Calculation
                                 class. This demonstrates that these classes reuse the code from its parent class and
                                 therefore shows the Inheritance property.
                             <div class="ms-4 ps-4 mt-3 mb-3">
                             <code>
-                                class Addition(Calculator):<br>
-                                &emsp;&emsp; def calculate(self, val1):<br>
-                                &emsp;&emsp;&emsp;&emsp;self.result = self.result + val1<br>
+                                """Addition class inherits calculation"""<br>
+                                class Addition(Calculation):<br>
+                                &emsp;&emsp; def calculate(self):<br>
+                                &emsp;&emsp;&emsp;&emsp;result = 0.0<br>
+        &emsp;&emsp;&emsp;&emsp;for value in self.values:<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;result = result + value<br>
+        &emsp;&emsp;&emsp;&emsp;return result<br>
                                 <br>
-                                class Subtraction(Calculator):<br>
-                                &emsp;&emsp; def calculate(self, val1):<br>
-                                &emsp;&emsp;&emsp;&emsp;self.result = self.result - val1<br>
-                                <br>
+                                """ Subtraction class inherits calculation"""<br>
+                                class Subtraction(Calculation):<br>
+                                &emsp;&emsp; def calculate(self):<br>
+                                &emsp;&emsp;&emsp;&emsp;result = 0.0<br>
+        &emsp;&emsp;&emsp;&emsp;for value in self.values:<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;result = result - value<br>
+        &emsp;&emsp;&emsp;&emsp;return result<br>
                             </code></div>
                             </p>
                             <h3 class="display-6">Polymorphism</h3>
@@ -123,16 +149,11 @@
                             <br>
                         <div class="ms-4 ps-4 mt-3 mb-3">
                             <code>
-                                a = Addition()<br>
-                                b = Subtraction()<br>
+                                a = Addition(1,2)<br>
+                                b = Subtraction(1,2)<br>
                                 <br>
-                                a.calculate(1)<br>
-                                a.calculate(2)<br>
-                                b.calculate(1)<br>
-                                b.calculate(2)<br>
-                                <br>
-                                print(a.get_result()) # will print 3<br>
-                                print(b.get_result()) # will print -1<br>
+                                print(a.calculate()) # will print 3<br>
+                                print(b.calculate()) # will print -1<br>
                             </code>
                     </div>
 
@@ -146,14 +167,13 @@
                                 methods. This characteristic of data hiding provides greater program security and avoids
                                 unintended data corruption.
                             </p>
-                            <p>In our implementations of the calculator class and its subclasses above, we can see that all the relavant functions and properties are enclosed in a single object. Throughout our program we will work with the calculator object to do the calculations as all the functions required are enclosed in that class. This shows encapsulation.
+                            <p>In our implementations of the calculator class, calculation class and its subclasses above, we can see that all the relavant functions and properties are enclosed in a single object. Throughout our program we will work with the calculator object to do the calculations as all the functions required are enclosed in that class. This shows encapsulation.
 <div class="ms-4 ps-4 mt-3 mb-3">
                             <code>
-                                calc = Calculator()<br>
-                                calc.add(5)<br>
-                                calc.add(6)<br>
-                                cal.subtract(4)
-                                print(calc.result) # will print 7<br>
+                                a = Calculator.add(5,6)<br>
+                                b = Calculator.subtract(4,3)<br>
+                                print(a) # will print 11<br>
+                                print(b) # will print 1<br>
                             </code>
                     </div>
                             </p>
