@@ -6,64 +6,62 @@
             <div class="col-md-10">
                 <hr>
                 <p class="text-center">
-                    CI and CD stand for continuous integration and continuous delivery/continuous deployment. Continuous
-                    Integration (CI) is a development practice where developers integrate code into a shared repository
-                    frequently, preferably several times a day. In continuous development updates are made continuously,
-                    piece-by-piece, enabling software code to be delivered to customers as soon as it is completed and
-                    tested.
+                    SOLID is an acronym for the first five object-oriented design (OOD) principles. These principles establish practices that lend to developing software with considerations for maintaining and extending as the project grows. Adopting these practices can also contribute to avoiding code smells, refactoring code, and Agile or Adaptive software development.
 
                 </p><br>
+                <img src="../../static/images/solid2.png"
+                     class="img-fluid mx-auto d-block"
+                     alt="SOLID Principles"
+                     style="max-width: 50%;max-height: 50%">
                 <hr>
                 <div class="row">
                     <div class="col">
-                        <h2 class="display-6">GitHub Actions</h2>
-                        Github actions help to automate, customize, and execute software development workflows right in
-                        your repository. We can discover, create, and share actions to perform any job we'd like,
-                        including CI/CD, and combine actions in a completely customized workflow. This project uses
-                        features from github actions to implement CI/CD.
-                        <br><br>
-                        In the project we have two ".yml" files which are inside our ".github/workflows" directory. This
-                        is used for CI/CD purposes and the files contain routines to follow on certain actions. These
-                        are executed under github ActionsMore about these will be explained below.
+                        <h2 class="display-6">How Our Calculator Program Demonstrates These Principles</h2>
+                        In our calculator we can see that our addition class is only responsible for one thing. It addresses the addition of the inputs received. This demonstrates single responsibility in a class.
 
+                        <div class="ms-4 ps-4 mt-3 mb-3">
+                            <code>
+                                class Addition(Calculation):<br>
+                                &emsp;&emsp; def calculate(self):<br>
+                                &emsp;&emsp;&emsp;&emsp;result = 0.0<br>
+        &emsp;&emsp;&emsp;&emsp;for value in self.values:<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;result = result + value<br>
+        &emsp;&emsp;&emsp;&emsp;return result<br>
+                            </code></div>
+
+                        Lets say that we now need to add an operation to our calculation that allows it to multiply the inputs. We could add the following code without breaking our calculation class. This shows that our class is open to extension but closed to modification as per the open close principle. We can then add multiply as a static function in our calculator class that calls upon this new class.
+                        <div class="ms-4 ps-4 mt-3 mb-3">
+                            <code>
+                                class Multiply(Calculation):<br>
+                                &emsp;&emsp; def calculate(self):<br>
+                                &emsp;&emsp;&emsp;&emsp;result = 1.0<br>
+        &emsp;&emsp;&emsp;&emsp;for value in self.values:<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;result = result + value<br>
+        &emsp;&emsp;&emsp;&emsp;return result<br>
+                                <br>
+                            </code></div>
+                        According to the lizkov principle every subclass or derived class should be substitutable for their base or parent class. In our code we can substitute our derived classes and base class without breaking our code.
                         <br>
-                        <hr>
-                        <h2 class="display-6">How CI/CD is Used in the Project</h2>
-                        "Integration is primarily about communication. Integration allows developers to tell other
-                        developers about the changes they have made. Frequent communication allows people to know
-                        quickly as changes develop."[1]<br><br>
 
-                        To implement Integration in the project we have a repository on Github for this project. The
-                        repository
-                        is made public. The repository
-                        has a main branch and a development branch. Changes are made to the development branch and
-                        comitted to the same branch. A pull request is then created to merge the branch. <br><br>
-
-                        "Continuous Delivery is a software development discipline where you build software in such a way
-                        that the software can be released to production at any time."[2]<br><br>
-                        Continuous delivery has also been set up for this project. As mentioned in the previous section we have "dev.yml" and "prod.yml" that defines the workflows
-                        for our repository. These workflows contain actions/jobs to be executed on certain criteria
-                        defined by us.
-                        On a push or merge made to the main branch the "prod.yml" workflow will run. This workflow runs
-                        <a href="page3.html">pytest</a>, and deploys the project onto heroku(production-site) and
-                        docker. <br><br>
-                        On pull requests "dev.yml" workflow is executed which runs pytest and deploys the project to a
-                        development-site and not in the production-site in heroku. After all the tests have passed we
-                        can merge the branch the main branch.
-                        As we can see these all automate the deployment and testing for the project. This is how CI/CD
-                        is used in the project.
-                        <br>
                         <hr>
-                        <h2 class="display-6">How Image is Deployed in Dockerhub</h2>
-                        The workflows mentioned above deploys the image onto DockerHub on push/merge into the master
-                        branch as defined in our "prod.yml" file. The changes in the docker image is commited and pushed
-                        into the docker repository. This happens automatically through github action workflows. <br>
+                        <h2 class="display-6">Design Patterns</h2>
+                        We have a "create" method in our Calculation class that only does one thing. It creates instances of calculation classes. This is what we call a factory method which is one of the design patterns used.
+                        <div class="ms-4 ps-4 mt-3 mb-3">
+                            <code>
+                                class Calculation:<br>
+                                &emsp;&emsp;"""<br>
+                                &emsp;&emsp;&emsp;&emsp;some other code<br>
+                                &emsp;&emsp;"""<br>
+                                &emsp;&emsp;@classmethod<br>
+    &emsp;&emsp;def create(cls, tuple_list: tuple):<br>
+        &emsp;&emsp;&emsp;&emsp;""" factory method"""<br>
+        &emsp;&emsp;&emsp;&emsp;return cls(tuple_list)<br>
+                            </code>
+                        </div>
                         <hr>
-                        <h2 class="display-6">Citations-</h2>
+                        <h2 class="display-6">References-</h2>
                         <ol>
-                            <li><a href="https://www.martinfowler.com/articles/continuousIntegration.html">https://www.martinfowler.com/articles/continuousIntegration.html</a>
-                            </li>
-                            <li><a href="https://www.martinfowler.com/bliki/ContinuousDelivery.html">https://www.martinfowler.com/bliki/ContinuousDelivery.html</a>
+                            <li><a href="https://www.digitalocean.com/community/conceptual_articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design">https://www.digitalocean.com/community/conceptual_articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design</a>
                             </li>
                         </ol>
 
