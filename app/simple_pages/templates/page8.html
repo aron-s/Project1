@@ -30,22 +30,52 @@
                             </code></div>
 
                         Lets say that we now need to add an operation to our calculation that allows it to multiply the inputs. We could add the following code without breaking our calculation class. This shows that our class is open to extension but closed to modification as per the open close principle. We can then add multiply as a static function in our calculator class that calls upon this new class.
+
                         <div class="ms-4 ps-4 mt-3 mb-3">
                             <code>
                                 class Multiply(Calculation):<br>
                                 &emsp;&emsp; def calculate(self):<br>
                                 &emsp;&emsp;&emsp;&emsp;result = 1.0<br>
         &emsp;&emsp;&emsp;&emsp;for value in self.values:<br>
-            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;result = result + value<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;result = result * value<br>
         &emsp;&emsp;&emsp;&emsp;return result<br>
                                 <br>
                             </code></div>
                         According to the lizkov principle every subclass or derived class should be substitutable for their base or parent class. In our code we can substitute our derived classes and base class without breaking our code.
+                        <div class="ms-4 ps-4 mt-3 mb-3">
+                            <code>
+                                def printValues(calc):<br>
+                                   &emsp;&emsp; print(calc.values)<br>
+                                a = Addition((1,2))<br>
+                                printValues(a)<br>
+                                b = Calculation((1,2))<br>
+                                printValues(b)
+                            </code></div>
+                        The above code will not give us an error even if we substitute a derived class for a base class. Therefore it does not violate the lizkov principle.<br>
+
                         <br>
+                        The interface segregation principles states that a client should never be forced to implement an interface that it doesn’t use, or clients shouldn’t be forced to depend on methods they do not use. Our calculator program does not force any classes to implement interfaces that they do not use. Therefore, it follows this principle.<br>
+                        <br>
+                        The dependency inversion principle states that entities must depend on abstractions, not on concretions. It states that the high-level module must not depend on the low-level module, but they should depend on abstractions.
+
+<div class="ms-4 ps-4 mt-3 mb-3">
+                            <code>
+                                """<br>
+                                This method is inside calculator and depends on abstraction as well.<br>
+                                 &emsp;&emsp;@staticmethod<br>
+                                &emsp;&emsp;def add(self, tuple_list):<br>
+                                &emsp;&emsp;&emsp;&emsp; """ This is the add method"""<br>
+                                &emsp;&emsp;&emsp;&emsp; calculation = Addition.create(tuple_list)<br>
+                                &emsp;&emsp;&emsp;&emsp;return calculation.calculate()<br>
+                                """<br>
+                                a = Calculator.add((1,2))<br>
+                            </code></div>
+                        In our code above, we can see that we use higher level calls such as the "add" method for adding which shows abstraction. However, if we look at the implementation for "add", that method itself relies on abstraction of a lower level module i.e the Addition class. Both the high-level and low-level modules depend on abstraction. Therefore, this follows the dependency inversion principle.
+
 
                         <hr>
                         <h2 class="display-6">Design Patterns</h2>
-                        We have a "create" method in our Calculation class that only does one thing. It creates instances of calculation classes. This is what we call a factory method which is one of the design patterns used.
+                        A Factory method is a creational design pattern, i.e., related to object creation. In Factory pattern, we create objects without exposing the creation logic to the client and the client uses the same common interface to create a new type of object. We have a "create" method in our Calculation class that only does one thing. It creates instances of calculation classes. This is what we call a factory method which is one of the design patterns used.
                         <div class="ms-4 ps-4 mt-3 mb-3">
                             <code>
                                 class Calculation:<br>
@@ -63,6 +93,9 @@
                         <ol>
                             <li><a href="https://www.digitalocean.com/community/conceptual_articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design">https://www.digitalocean.com/community/conceptual_articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design</a>
                             </li>
+                            <li><a href="https://www.geeksforgeeks.org/design-patterns-set-2-factory-method/">https://www.geeksforgeeks.org/design-patterns-set-2-factory-method/</a>
+                            </li>
+
                         </ol>
 
                     </div>

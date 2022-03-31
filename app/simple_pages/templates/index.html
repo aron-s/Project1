@@ -16,6 +16,14 @@
                                 aria-label="Slide 3"></button>
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
                                 aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                                aria-label="Slide 5"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5"
+                                aria-label="Slide 6"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="6"
+                                aria-label="Slide 7"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="7"
+                                aria-label="Slide 8 "></button>
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -57,6 +65,43 @@
                                 <p class="text-white">Continuous Integration and Continuous Deployment.</p>
                             </div>
                         </div>
+                        <div class="carousel-item">
+                            <a href="{{ url_for('simple_pages.show', page="page5") }}">
+                                <img src="../../static/images/glossary_oops.png" class="d-block w-100 img-cour" alt="glosary oops">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Glossary of OOP Terms</h5>
+                                <p class="text-white">Overview of SOLID and OOPS with glossaries.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="{{ url_for('simple_pages.show', page="page6") }}">
+                                <img src="../../static/images/aaa.png" class="d-block w-100 img-cour" alt="aaa testing">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>AAA Testing</h5>
+                                <p class="text-white">Arrange-Act-Assert Testing Pattern.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="{{ url_for('simple_pages.show', page="page7") }}">
+                                <img src="../../static/images/oops.png" class="d-block w-100 img-cour" alt="OOPS">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Object Oriented Programming</h5>
+                                <p class="text-white">Demonstration of Object Oriented Programming.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="{{ url_for('simple_pages.show', page="page8") }}">
+                                <img src="../../static/images/solid2.png" class="d-block w-100 img-cour" alt="solid">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>SOLID Principles</h5>
+                                <p class="text-white">Demonstration of SOLID principles.</p>
+                            </div>
+                        </div>
+
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
                             data-bs-slide="prev">
