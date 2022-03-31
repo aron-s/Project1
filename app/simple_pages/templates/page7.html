@@ -38,13 +38,13 @@
                                 class Calculator:<br>
                                 <br>
                                  &emsp;&emsp;@staticmethod<br>
-                                &emsp;&emsp;def add(self, tuple_list):<br>
+                                &emsp;&emsp;def add(tuple_list):<br>
                                 &emsp;&emsp;&emsp;&emsp; """ This is the add method"""<br>
                                 &emsp;&emsp;&emsp;&emsp; calculation = Addition.create(tuple_list)<br>
                                 &emsp;&emsp;&emsp;&emsp;return calculation.calculate()<br>
                                 <br>
                                 &emsp;&emsp;@staticmethod<br>
-                                &emsp;&emsp;def subtract(self, tuple_list):<br>
+                                &emsp;&emsp;def subtract(tuple_list):<br>
                                 &emsp;&emsp;&emsp;&emsp; """ This is the subtract method"""<br>
                                 &emsp;&emsp;&emsp;&emsp;calculation = Subtraction.create(tuple_list)
         <br>
@@ -80,9 +80,13 @@
                                 """ Subtraction class inherits calculation"""<br>
                                 class Subtraction(Calculation):<br>
                                 &emsp;&emsp; def calculate(self):<br>
-                                &emsp;&emsp;&emsp;&emsp;result = 0.0<br>
+                                &emsp;&emsp;&emsp;&emsp;if len(self.values) != 0:<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;result = self.values[0]<br>
+        &emsp;&emsp;&emsp;&emsp;else:<br>
+                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;return 0.0<br>
         &emsp;&emsp;&emsp;&emsp;for value in self.values:<br>
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;result = result - value<br>
+                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;result = result + self.values[0]<br>
         &emsp;&emsp;&emsp;&emsp;return result<br>
                             </code>
                         </div>
@@ -102,7 +106,7 @@
                                 """ Add two numbers """<br>
                                 a = 5 # first number<br>
                                 b = 6 # second number<br>
-                                result = Calculator.add(a,b)<br>
+                                result = Calculator.add((a,b))<br>
                                 print(result) # will print 11<br>
                             </code>
                     </div>
@@ -130,9 +134,13 @@
                                 """ Subtraction class inherits calculation"""<br>
                                 class Subtraction(Calculation):<br>
                                 &emsp;&emsp; def calculate(self):<br>
-                                &emsp;&emsp;&emsp;&emsp;result = 0.0<br>
+                                &emsp;&emsp;&emsp;&emsp;if len(self.values) != 0:<br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;result = self.values[0]<br>
+        &emsp;&emsp;&emsp;&emsp;else:<br>
+                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;return 0.0<br>
         &emsp;&emsp;&emsp;&emsp;for value in self.values:<br>
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;result = result - value<br>
+                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;result = result + self.values[0]<br>
         &emsp;&emsp;&emsp;&emsp;return result<br>
                             </code></div>
                             </p>
@@ -149,8 +157,8 @@
                             <br>
                         <div class="ms-4 ps-4 mt-3 mb-3">
                             <code>
-                                a = Addition(1,2)<br>
-                                b = Subtraction(1,2)<br>
+                                a = Addition((1,2))<br>
+                                b = Subtraction((1,2))<br>
                                 <br>
                                 print(a.calculate()) # will print 3<br>
                                 print(b.calculate()) # will print -1<br>
@@ -170,8 +178,8 @@
                             <p>In our implementations of the calculator class, calculation class and its subclasses above, we can see that all the relavant functions and properties are enclosed in a single object. Throughout our program we will work with the calculator object to do the calculations as all the functions required are enclosed in that class. This shows encapsulation.
 <div class="ms-4 ps-4 mt-3 mb-3">
                             <code>
-                                a = Calculator.add(5,6)<br>
-                                b = Calculator.subtract(4,3)<br>
+                                a = Calculator.add((5,6))<br>
+                                b = Calculator.subtract((4,3))<br>
                                 print(a) # will print 11<br>
                                 print(b) # will print 1<br>
                             </code>

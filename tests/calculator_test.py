@@ -1,5 +1,10 @@
 """Testing the Calculator"""
-from calculator import Calculator
+from calculator import Calculator, Calculation, Addition, Subtraction
+
+
+def tuple_list():
+    """Arranging Data for AAA Testing"""
+    return 1.0, 2
 
 
 def test_calculator_is_instance():
@@ -8,28 +13,32 @@ def test_calculator_is_instance():
     assert isinstance(calculator, Calculator)
 
 
-def test_calculator_get_result_method():
+def test_calculation_is_instance():
     """Testing the Calculator"""
-    calculator = Calculator()
-    assert calculator.get_result() == 0
+    calculate = Calculation((1, 2))
+    assert isinstance(calculate, Calculation)
 
 
-def test_calculator_result_property():
-    """Testing the Calculator"""
-    calc1 = Calculator()
-    calc2 = Calculator()
-    calc1.result = 5
-    calc2.result = 6
-    assert calc1.result == 5
-    assert calc2.result == 6
+def test_calculation_addition_instance():
+    """Testing the Calculator Subtract"""
+    tuple_list = (1, 2)
+    calculation = Addition.create(tuple_list)
+    assert isinstance(calculation, Addition)
+
+
+def test_calculation_subtraction_instance():
+    """Testing the Calculator Subtract"""
+    tuple_list = (1, 2)
+    calculation = Subtraction.create(tuple_list)
+    assert isinstance(calculation, Subtraction)
 
 
 def test_calculator_add_method():
     """Testing the Calculator"""
-    calculator = Calculator()
-    assert calculator.add(1) == 1
+    result = Calculator.add(tuple_list())
+    assert result == 3
+
 
 def test_calculator_subtract_method():
     """Testing the Calculator Subtract"""
-    calculator = Calculator()
-    assert calculator.subtract(1) == -1
+    assert Calculator.subtract(tuple_list()) == -1
